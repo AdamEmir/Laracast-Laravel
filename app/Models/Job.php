@@ -10,8 +10,10 @@ class Job extends Model{
     use HasFactory;
 
     protected $table = 'job_listings';
-
-    protected $fillable = ['title', 'salary'];
+    //assign variable that can be mass assigned
+//    protected $fillable = ['title', 'salary', 'employer_id'];
+    //assign variable not to be mass assigned
+    protected $guarded = [];
 
     public function employer(){
         return $this->belongsTo(Employer::class);
