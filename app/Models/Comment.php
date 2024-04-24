@@ -11,6 +11,9 @@ class Comment extends Model
 
     protected $fillable = ['title','body'];
 
+//    hierarchy([
+//        Parent => Post::class,
+//        Child => Comment::class,])
     public function post(){
         return $this->belongsTo(Post::class);
     }

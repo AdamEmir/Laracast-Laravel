@@ -9,6 +9,9 @@ class Employer extends Model
 {
     use HasFactory;
 
+//    hierarchy([
+//        Parent => Employer::class,
+//        Child => Job::class,])
     public function jobs()
     {
         return $this->hasMany(Job::class);
