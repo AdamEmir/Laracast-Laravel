@@ -15,10 +15,17 @@ class Job extends Model{
     //assign variable not to be mass assigned
     protected $guarded = [];
 
+//    hierarchy([
+//        Parent => Job::class,
+//        Child => Employer::class,])
     public function employer(){
         return $this->belongsTo(Employer::class);
     }
 
+//    hierarchy([
+//        Parent => Tag::class,
+//        Child => Job::class,])
+//    pivot table job_tag
     public function tags(){
         return $this->belongsToMany(Tag::class, foreignPivotKey: "job_listing_id");
     }

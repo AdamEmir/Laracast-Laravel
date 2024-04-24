@@ -11,14 +11,24 @@ class Post extends Model
 
     protected $fillable = ['title', 'body'];
 
+//    hierarchy([
+//        Parent => Post::class,
+//        Child => Comment::class,])
     public function comments(){
         return $this->hasMany(Comment::class);
     }
 
+//    hierarchy([
+//        Parent => User::class,
+//        Child => Post::class,])
     public function user(){
         return $this->belongsTo(User::class);
     }
 
+//    hierarchy([
+//        Parent => Tag::class,
+//        Child => Post::class,])
+//    pivot table post_tag
     public function tags(){
         return $this->belongsToMany(Tag::class);
     }
