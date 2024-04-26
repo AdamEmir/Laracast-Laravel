@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\RegisteredUserController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +26,16 @@ Route::controller(JobController::class)->group(function () {
     Route::get('/jobs/{job}/edit', 'edit');
     Route::patch('/jobs/{job}', 'update');
     Route::delete('/jobs/{job}', 'destroy');
+});
+
+Route::controller(RegisteredUserController::class)->group(function () {
+    Route::get('/register', 'create');
+    Route::post('/register', 'store');
+});
+
+Route::controller(SessionController::class)->group(function () {
+    Route::get('/login', 'create');
+    Route::post('/login', 'store');
 });
 
 Route::view('/contact', 'contact');
