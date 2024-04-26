@@ -18,6 +18,7 @@
                             <x-form-input name="email"
                                           id="email"
                                           type="email"
+                                          :value="old('email')"
                                           required
                             ></x-form-input>
                             {{--                            show error message for email--}}
