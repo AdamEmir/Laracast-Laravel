@@ -21,12 +21,12 @@ Route::view('/', 'home');
 Route::controller(JobController::class)->group(function () {
 
     Route::middleware(['auth', 'can:edit,job'])->group(function () {
-        Route::post('/jobs', 'store');
+
         Route::get('/jobs/{job}/edit', 'edit');
         Route::patch('/jobs/{job}', 'update');
         Route::delete('/jobs/{job}', 'destroy');
     });
-
+    Route::post('/jobs', 'store')->middleware('auth');
     Route::get('jobs', 'index');
     Route::get('/jobs/create', 'create');
     Route::get('/jobs/{job}', 'show');
